@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    $projects = App\Models\Project::all();
+    $projects = \App\Models\Project::all();
     return view('guests.home', compact('projects'));
 });
 
@@ -23,3 +23,4 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('projects', ProjectController::class);
     });
 });
+
